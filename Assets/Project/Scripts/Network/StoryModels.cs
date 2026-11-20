@@ -37,3 +37,25 @@ public class ArrayWrapper<T>
         return JsonUtility.FromJson<ArrayWrapper<T>>(wrapped).items;
     }
 }
+
+/// <summary>Muatan yang dikirim ke server saat pemain menyelesaikan sesi.</summary>
+[Serializable]
+public class ScoreSubmission
+{
+    public string sessionId;
+    public string playerName;
+    public string storyId;
+    public int points;
+    public int objectivesCompleted;
+    public int durationSeconds;
+}
+
+/// <summary>Balasan server atas pengiriman skor.</summary>
+[Serializable]
+public class ScoreResponse
+{
+    public string status;
+    public string message;
+    public int totalPoints;
+    public int rank;
+}
